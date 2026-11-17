@@ -1,0 +1,55 @@
+{
+  "name": "@seal0/sdk",
+  "version": "0.1.0",
+  "description": "TypeScript client for the Seal0 entitlement API (server-side).",
+  "license": "Apache-2.0",
+  "homepage": "https://docs.seal0.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seal0-app/sdk-node.git"
+  },
+  "bugs": {
+    "url": "https://github.com/seal0-app/sdk-node/issues"
+  },
+  "keywords": [
+    "seal0",
+    "entitlements",
+    "usage-limits",
+    "plans",
+    "subscriptions",
+    "sdk"
+  ],
+  "type": "module",
+  "engines": {
+    "node": ">=20.3"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.test.json --noEmit",
+    "test": "tsc -p tsconfig.test.json && node --test .test-dist/test/unit.test.js .test-dist/test/constants.test.js",
+    "test:integration": "tsc -p tsconfig.test.json && node --test .test-dist/test/integration.test.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "20.19.43",
+    "openapi-typescript": "7.13.0",
+    "typescript": "5.9.3",
+    "yaml": "2.9.1"
+  }
+}
